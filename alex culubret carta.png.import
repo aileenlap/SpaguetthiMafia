@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Civilian_card_back.png-77dc4f66e5907566113573499fdc23f0.stex"
+path="res://.import/alex culubret carta.png-a387acb956f0afca1c3ca1ecdfd2cb0f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/PNG/Cards_color1/Civilian_card_back/Civilian_card_back.png"
-dest_files=[ "res://.import/Civilian_card_back.png-77dc4f66e5907566113573499fdc23f0.stex" ]
+source_file="res://alex culubret carta.png"
+dest_files=[ "res://.import/alex culubret carta.png-a387acb956f0afca1c3ca1ecdfd2cb0f.stex" ]
 
 [params]
 
