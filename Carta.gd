@@ -21,3 +21,4 @@ func _on_Carta_gui_input(event):
 			#mouse released
 			selected = false
 			rect_position = initial_pos
+
