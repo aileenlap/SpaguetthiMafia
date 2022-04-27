@@ -10,10 +10,8 @@ extents = Vector2( 96.5, 141 )
 [node name="Carta" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 388.0
-margin_top = 216.0
-margin_right = -441.0
-margin_bottom = -100.0
+margin_right = -829.0
+margin_bottom = -316.0
 mouse_filter = 1
 script = ExtResource( 1 )
 
@@ -31,6 +29,15 @@ texture = ExtResource( 2 )
 margin_right = 195.0
 margin_bottom = 284.0
 texture = ExtResource( 3 )
+
+[node name="Text" type="Label" parent="Area2D"]
+margin_left = 25.0
+margin_top = 173.0
+margin_right = 171.0
+margin_bottom = 250.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+autowrap = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Area2D"]
 anchor_left = 0.5
@@ -53,18 +60,10 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Ermesenda"
 align = 1
 
-[node name="Explicació" type="RichTextLabel" parent="Area2D/MarginContainer/VBoxContainer"]
-margin_top = 18.0
-margin_right = 146.0
-margin_bottom = 98.0
-rect_min_size = Vector2( 0, 80 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-bbcode_enabled = true
-bbcode_text = "[center]No fa una pija aquesta merda[/center]"
-text = "No fa una pija aquesta merda"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 96.5, 142 )
 shape = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
 
 [connection signal="gui_input" from="." to="." method="_on_Carta_gui_input"]
