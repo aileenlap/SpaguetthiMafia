@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://sprites/Individual Sprites/adventurer-die-00.png" type="Texture" id=1]
 [ext_resource path="res://sprites/Individual Sprites/adventurer-attack3-05.png" type="Texture" id=2]
@@ -37,12 +37,29 @@
 [ext_resource path="res://sprites/Individual Sprites/adventurer-attack2-04.png" type="Texture" id=35]
 [ext_resource path="res://sprites/Individual Sprites/adventurer-attack3-03.png" type="Texture" id=36]
 [ext_resource path="res://sprites/Individual Sprites/adventurer-attack3-04.png" type="Texture" id=37]
+[ext_resource path="res://Escenes/Health Bar/HealthBar.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Personatge.gd" type="Script" id=39]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 18 ), ExtResource( 13 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 22 ), ExtResource( 31 ), ExtResource( 35 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "attack2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 25 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "attack1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 34 ), ExtResource( 24 ), ExtResource( 36 ), ExtResource( 2 ), ExtResource( 37 ) ],
+"loop": true,
+"name": "attack3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ), ExtResource( 3 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 16 ), ExtResource( 4 ) ],
@@ -59,21 +76,6 @@ animations = [ {
 "loop": true,
 "name": "hurt",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 28 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 25 ), ExtResource( 30 ) ],
-"loop": true,
-"name": "attack1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 22 ), ExtResource( 31 ), ExtResource( 35 ), ExtResource( 29 ) ],
-"loop": true,
-"name": "attack2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 34 ), ExtResource( 24 ), ExtResource( 36 ), ExtResource( 2 ), ExtResource( 37 ) ],
-"loop": true,
-"name": "attack3",
-"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -81,14 +83,22 @@ radius = 25.0
 height = 66.0
 
 [node name="Personatge" type="KinematicBody2D"]
+script = ExtResource( 39 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2.53, 3.24324 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource( 2 )
+
+[node name="HealthBar" parent="." instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -50.0
+margin_top = -56.0
+margin_right = -50.0
