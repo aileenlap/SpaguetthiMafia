@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var health = 100 setget change_health
-export var max_health = 20
+export var max_health = 50
 
 func change_health (new_life):
 	health = new_life
