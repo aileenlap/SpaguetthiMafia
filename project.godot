@@ -14,6 +14,10 @@ config/name="SpaguetthiMafia"
 run/main_scene="res://Carta.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+CardDatabase="*res://CardDatabase.gd"
+
 [input]
 
 click={

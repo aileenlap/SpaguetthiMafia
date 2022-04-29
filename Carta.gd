@@ -4,20 +4,27 @@ var selected = false
 var global_position
 var initial_pos
 var offset
-var Cardname = 'civilian1'
-onready var CardDatabase = preload ('res://CardDatabase.gd')
-onready var CardInfo = CardDatabase.DATA[CardDatabase.get(Cardname)]
+var Cardname
+var CardInfo
+
+var type
+var cost
+var dmg
+var text
 
 func _ready():
 	initial_pos = rect_position
-	var type = str(CardInfo[1])
-	var cost = str(CardInfo[2])
-	var dmg = str(CardInfo[3])
-	var text = str(CardInfo[4])
+	
+	
+func carrega():
+	CardInfo = CardDatabase.DATA[Cardname]
+	type = CardInfo['tipus']
+	cost = CardInfo['cost']
+	dmg = CardInfo['mal']
+	text = CardInfo['descripcio']
 	$Area2D/MarginContainer/VBoxContainer/Nom.text = Cardname
 	$Area2D/Text.text = text
 	
-
 func _process(delta):
 	if selected:
 		followMouse()

@@ -1,14 +1,19 @@
+extends Node
 #Cardinfo = type, cost, dmg, text
 
 enum {civilian1, civilian2}
 
 const DATA = {
-	civilian1:
-		[0, 'Unit', 1, 1,'Civil pijudo'],
-	civilian2:
-		[0, 'Unit', 2, 2, 'Capo'],
-	
-	
+	'civilian1':
+		{'tipus':'Unit',
+		 'cost': 1,
+		 'mal': 1,
+		 'descripcio': 'Civil pijudo'},
+	'civilian2':
+		{'tipus':'Blah',
+		 'cost': 1,
+		 'mal': 1,
+		 'descripcio': 'Coses precioses'},
 	
 	
 	
