@@ -39,22 +39,6 @@ region = Rect2( 900, 0, 150, 150 )
 atlas = ExtResource( 2 )
 region = Rect2( 1050, 0, 150, 150 )
 
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 150, 150 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 4 )
-region = Rect2( 150, 0, 150, 150 )
-
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 4 )
-region = Rect2( 300, 0, 150, 150 )
-
-[sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 4 )
-region = Rect2( 450, 0, 150, 150 )
-
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 150, 150 )
@@ -103,17 +87,28 @@ region = Rect2( 900, 0, 150, 150 )
 atlas = ExtResource( 3 )
 region = Rect2( 1050, 0, 150, 150 )
 
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 4 )
+region = Rect2( 150, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 4 )
+region = Rect2( 300, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 4 )
+region = Rect2( 450, 0, 150, 150 )
+
 [sub_resource type="SpriteFrames" id=25]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "idle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
-"loop": true,
-"name": "die",
-"speed": 4.02
+"speed": 10.0
 }, {
 "frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
 "loop": true,
@@ -124,12 +119,17 @@ animations = [ {
 "loop": true,
 "name": "attack",
 "speed": 6.5
+}, {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "die",
+"speed": 4.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 21.5, 16.5 )
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="KinematicBody2D2" type="KinematicBody2D"]
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
