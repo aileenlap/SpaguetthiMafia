@@ -20,4 +20,6 @@ func _ready():
 	$AnimatedSprite.play("idle")
 	yield(get_tree().create_timer(3), 'timeout')
 	self.health = 40
-
+	
+func _attack():
+	
