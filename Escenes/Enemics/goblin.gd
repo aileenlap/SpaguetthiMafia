@@ -21,3 +21,15 @@ func _ready():
 	$AnimatedSprite.play("idle")
 	yield(get_tree().create_timer(3), 'timeout')
 	self.health = 0
+	
+func _attack(damage, buff):
+	$AnimationPlayer.play("Nova Animació")
+	var damage_total = damage + buff
+	return damage_total
+	
+func _defense(defense, buff):
+	$AnimatedSprite.play("defense")
+	var defense_total = defense + buff
+	yield(get_tree().create_timer(1.6), "timeout")
+	$AnimatedSprite.play("idle")
+	return defense_total
