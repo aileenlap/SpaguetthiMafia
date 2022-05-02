@@ -10,7 +10,7 @@ extents = Vector2( 96.5, 141 )
 [node name="Carta" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -829.0
+margin_right = -831.0
 margin_bottom = -316.0
 mouse_filter = 1
 script = ExtResource( 1 )
