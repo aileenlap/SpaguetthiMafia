@@ -19,4 +19,8 @@ func _ready():
 	$HealthBar/TextureProgress.value = health
 	$AnimatedSprite.play("idle")
 	yield(get_tree().create_timer(3), 'timeout')
-	self.health = 0
+	_attack()
+#	self.health = 0
+
+func _attack():
+	$AnimationPlayer.play('attack')

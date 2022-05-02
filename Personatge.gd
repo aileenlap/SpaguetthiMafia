@@ -15,11 +15,26 @@ func change_health (new_life):
 		position = Vector2(100000,100000)
 
 func _ready():
-	$HealthBar/TextureProgress.max_value = max_health
-	$HealthBar/TextureProgress.value = health
-	$AnimatedSprite.play("idle")
-	yield(get_tree().create_timer(3), 'timeout')
-	self.health = 40
+#	$HealthBar/TextureProgress.max_value = max_health
+#	$HealthBar/TextureProgress.value = health
+#	$AnimatedSprite.play("idle")
+#	yield(get_tree().create_timer(3), 'timeout')
+#	_attack(10, 2)
+#	var attack = randi
+#	self.health = 40
+	pass
 	
-func _attack():
+func _attack(damage, buff):
+	$AnimationPlayer.play("attack")
+	var damage_total = damage + buff
+	return damage_total
 	
+func _attack2(damage, buff):
+	$AnimationPlayer.play("attack2")
+	var damage_total = damage + buff
+	return damage_total
+	
+func _attack3(damage, buff):
+	$AnimationPlayer.play("attack3")
+	var damage_total = damage + buff
+	return damage_total
