@@ -22,8 +22,8 @@ func carrega():
 	cost = CardInfo['cost']
 	dmg = CardInfo['mal']
 	text = CardInfo['descripcio']
-	$Area2D/MarginContainer/VBoxContainer/Nom.text = Cardname
-	$Area2D/Text.text = text
+	$CardBase/Area2D/MarginContainer/VBoxContainer/Nom.text = Cardname
+	$CardBase/Area2D/Text.text = text
 	
 func _process(delta):
 	if selected:
@@ -37,7 +37,7 @@ func _on_Carta_gui_input(event):
 		if event.pressed:
 			#mouse down
 			selected = true
-			offset = rect_size/2 #rect_position - get_local_mouse_position()
+			offset = rect_size/rect_position - get_local_mouse_position()
 		else:
 			#mouse released
 			selected = false
