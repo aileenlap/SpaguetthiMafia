@@ -12,6 +12,15 @@ onready var Ver_rad = get_viewport().size.y*0.4
 var angle = deg2rad(90) - 0.5
 var OvalAngleVector = Vector2()
 
+enum{
+	InHand
+	InPlay
+	InMouse
+	FocusInHand
+	MoveDrawnCardToHand
+	ReOrganiseHand
+}
+
 func _ready():
 	pass 
 	
@@ -22,10 +31,12 @@ func drawcard():
 	nova_carta.carrega()
 	#nova_carta.rect_position = get_global_mouse_position()
 	OvalAngleVector = Vector2(Hor_rad * cos(angle), - Ver_rad * sin(angle))
-	nova_carta.rect_position = CentreCard + OvalAngleVector - nova_carta.rect_size/2
+	nova_carta.get_node('CardBase').startpos = $Deck.position
+	nova_carta.get_node('CardBase').targetpos = CentreCard + OvalAngleVector - nova_carta.rect_size/2
 	get_parent().add_child(nova_carta)
 	nova_carta.rect_scale *= CardSize/nova_carta.rect_size
 	nova_carta.rect_rotation = (90 - rad2deg(angle))/4
+	nova_carta.get_node('CardBase').state = MoveDrawnCardToHand
 	PlayerHand.CardList.erase(PlayerHand.CardList[CarSelected])
 	angle += 0.25
 	DeckSize -= 1
