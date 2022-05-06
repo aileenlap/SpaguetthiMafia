@@ -8,8 +8,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$VBoxContainer/Start.grab_focus()
-
+	pass
 
 func _on_Start_pressed():
 	get_tree().change_scene("res://Joc.tscn")
@@ -21,6 +20,7 @@ func _on_Options_pressed():
 func _on_Exit_pressed():
 	get_tree().quit()
 
-
-func _on_TextureButton_pressed():
-	pass # Replace with function body.
+func back2menu():
+	if Input.is_action_just_pressed("prova"):
+		queue_free()
+		
