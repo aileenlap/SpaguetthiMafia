@@ -12,7 +12,7 @@ func change_health(new_life):
 	if health == 0:
 		$AnimatedSprite.play("die")
 		yield(get_tree().create_timer(0.66666666666666666666666666666666667), 'timeout')
-		position = Vector2(10000, 10000)
+		visible = false
 		
 func _ready():
 	$HealthBar/TextureProgress.max_value = max_health

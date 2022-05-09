@@ -12,7 +12,7 @@ func change_health (new_life):
 	if health == 0:
 		$AnimatedSprite.play("die")
 		yield(get_tree().create_timer(1), 'timeout')
-		position = Vector2(40000, 40000)
+		visible = false
 		
 func _ready():
 	$HealthBar/TextureProgress.max_value = max_health
@@ -32,3 +32,4 @@ func _defense(defense, buff):
 	yield(get_tree().create_timer(1.6), "timeout")
 	$AnimatedSprite.play("idle")
 	return defense_total
+
