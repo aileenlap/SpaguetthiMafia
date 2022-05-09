@@ -121,9 +121,11 @@ tracks/2/keys = {
 script = ExtResource( 19 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 2, -5 )
 scale = Vector2( 2.40625, 2.49 )
 frames = SubResource( 1 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -131,10 +133,10 @@ visible = false
 shape = SubResource( 2 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 18 )]
-margin_left = -50.0
-margin_top = -36.0
-margin_right = -50.0
-margin_bottom = -36.0
+margin_left = -48.0
+margin_top = -38.0
+margin_right = -48.0
+margin_bottom = -38.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 3 )

@@ -19,8 +19,12 @@ func _ready():
 	$HealthBar/TextureProgress.value = health
 	$AnimatedSprite.play("idle")
 	yield(get_tree().create_timer(3), 'timeout')
-	_attack()
+	_attack(5)
 #	self.health = 0
+	var damages = 0
+#	damages.get_node('damage_total').
 
-func _attack():
+func _attack(damage):
 	$AnimationPlayer.play('attack')
+	var damage_total = damage
+	return damage_total

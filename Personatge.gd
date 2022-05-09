@@ -13,16 +13,24 @@ func change_health (new_life):
 		$AnimatedSprite.play('die')
 		yield(get_tree().create_timer(1.2), "timeout")
 		position = Vector2(100000,100000)
+		
 
+var rng = RandomNumberGenerator.new()
 func _ready():
-#	$HealthBar/TextureProgress.max_value = max_health
-#	$HealthBar/TextureProgress.value = health
-#	$AnimatedSprite.play("idle")
-#	yield(get_tree().create_timer(3), 'timeout')
-#	_attack(10, 2)
+	$HealthBar/TextureProgress.max_value = max_health
+	$HealthBar/TextureProgress.value = health
+	$AnimatedSprite.play("idle")
+	yield(get_tree().create_timer(3), 'timeout')
 #	var attack = randi
 #	self.health = 40
-	pass
+	rng.randomize()
+	var my_random_number = rng.randi_range(1, 3)
+	if my_random_number == 1:
+		_attack(10,2)
+	elif my_random_number == 2:
+		_attack2(10,2)
+	else:
+		_attack3(10,2)
 	
 func _attack(damage, buff):
 	$AnimationPlayer.play("attack")
