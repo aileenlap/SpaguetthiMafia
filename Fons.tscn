@@ -20,3 +20,6 @@ position = Vector2( 194, 357 )
 position = Vector2( 457, 30 )
 
 [node name="Slime" parent="Node2D/Node2D" instance=ExtResource( 2 )]
+
+[connection signal="atac" from="Node2D/Personatge" to="Node2D/Node2D/Slime" method="_on_Personatge_atac"]
+[connection signal="atac" from="Node2D/Node2D/Slime" to="Node2D/Personatge" method="_on_Slime_atac"]
