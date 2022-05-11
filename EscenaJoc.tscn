@@ -10,12 +10,17 @@
 script = ExtResource( 2 )
 
 [node name="Carta" parent="." instance=ExtResource( 1 )]
+visible = false
+margin_left = -193.0
+margin_top = -4.0
+margin_right = -193.0
+margin_bottom = -4.0
 
 [node name="Deck" type="Node2D" parent="."]
 
 [node name="DeckDraw" type="TextureButton" parent="Deck"]
-margin_left = 211.0
-margin_right = 406.0
+margin_left = 3.0
+margin_right = 198.0
 margin_bottom = 284.0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 4 )

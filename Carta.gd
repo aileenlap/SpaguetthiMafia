@@ -1,5 +1,20 @@
 extends Control
 
+enum{
+	InHand
+	InPlay
+	InMouse
+	FocusInHand
+	MoveDrawnCardToHand
+	ReOrganiseHand
+}
+
+var state = InHand
+var startpos = 0
+var targetpos = 0
+var t = 0
+var drawtime = 1
+
 var selected = false
 var global_position
 var initial_pos
@@ -17,6 +32,7 @@ func _ready():
 	
 	
 func carrega():
+	var CardSize = rect_size
 	CardInfo = CardDatabase.DATA[Cardname]
 	type = CardInfo['tipus']
 	cost = CardInfo['cost']
@@ -24,6 +40,8 @@ func carrega():
 	text = CardInfo['descripcio']
 	$CardBase/Area2D/MarginContainer/VBoxContainer/Nom.text = Cardname
 	$CardBase/Area2D/Text.text = text
+	$Card.scale *= CardSize/$Card.texture.get_size()
+	$CardBack.scale *= CardSize/$CardBack.texture.get_size()
 	
 func _process(delta):
 	if selected:
@@ -43,6 +61,30 @@ func _on_Carta_gui_input(event):
 			selected = false
 			rect_position = initial_pos
 			
-#func return_card():
-	#$Tween.interpolate_property($Carta,'position',$Carta.position,initial_pos,1.0,Tween.TRANS_SINE,Tween.EASE_IN_OUT,1.0)
-
+func _physics_process(delta):
+	match state:
+		InHand:
+			pass
+			
+		InPlay:
+			pass
+			
+		InMouse:
+			pass
+			
+		FocusInHand:
+			pass
+			
+		MoveDrawnCardToHand:
+			if t <= 1:
+				rect_position = startpos.linear_interpolate(targetpos, t)
+				t += delta/float(drawtime)
+			else:
+				rect_position = targetpos
+				state = InHand
+				t = 0
+			
+		ReOrganiseHand:
+			pass
+			
+			

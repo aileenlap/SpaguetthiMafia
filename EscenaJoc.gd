@@ -2,7 +2,7 @@ extends Node2D
 
 const PlayerHand = preload ("res://PlayerHand.gd")
 const EscenaCarta = preload("res://Carta.tscn")
-const CardSize = Vector2(625,375)
+const CardSize = Vector2(125,175)
 var CarSelected = []
 onready var DeckSize = PlayerHand.CardList.size()
 
@@ -31,12 +31,13 @@ func drawcard():
 	nova_carta.carrega()
 	#nova_carta.rect_position = get_global_mouse_position()
 	OvalAngleVector = Vector2(Hor_rad * cos(angle), - Ver_rad * sin(angle))
-	nova_carta.get_node('CardBase').startpos = $Deck.position
-	nova_carta.get_node('CardBase').targetpos = CentreCard + OvalAngleVector - nova_carta.rect_size/2
+	nova_carta.startpos = $Deck.position - CardSize/2
+	nova_carta.targetpos = CentreCard + OvalAngleVector - nova_carta.rect_size
+	nova_carta.startrot = 0
+	nova_carta.targetrot = (90 - rad2deg(angle))/4
 	get_parent().add_child(nova_carta)
 	nova_carta.rect_scale *= CardSize/nova_carta.rect_size
-	nova_carta.rect_rotation = (90 - rad2deg(angle))/4
-	nova_carta.get_node('CardBase').state = MoveDrawnCardToHand
+	nova_carta.state = MoveDrawnCardToHand
 	PlayerHand.CardList.erase(PlayerHand.CardList[CarSelected])
 	angle += 0.25
 	DeckSize -= 1
