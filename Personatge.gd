@@ -51,7 +51,15 @@ func _attack3(damage, buff):
 	var damage_totalp = damage + buff
 	emit_signal("atac", damage_totalp)
 	return damage_totalp
-
+	
+func _defense(defense, buff):
+	$AnimatedSprite.play('defense')
+	var defense_total = defense + buff
+	yield(get_tree().create_timer(1.6), "timeout")
+	$AnimatedSprite.play('idle')
+	return defense_total
 
 func _on_Slime_atac(damage_totals):
 	self.health -= damage_totals
+	
+

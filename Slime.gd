@@ -35,6 +35,12 @@ func _attack(damage):
 	emit_signal("atac", damage_totals)
 	return damage_totals
 
+func _defense(defense, buff):
+	$AnimatedSprite.play('defense')
+	var defense_total = defense + buff
+	yield(get_tree().create_timer(1.6), "timeout")
+	$AnimatedSprite.play('idle')
+	return defense_total
 
 func _on_Personatge_atac(damage_totalp):
 	self.health = health - damage_totalp
