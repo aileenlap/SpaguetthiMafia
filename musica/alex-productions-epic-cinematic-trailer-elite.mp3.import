@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/alex-productions-epic-cinematic-trailer-elite.mp3-4eed764bfb1c84d5101de7261be50a63.mp3str"
+
+[deps]
+
+source_file="res://musica/alex-productions-epic-cinematic-trailer-elite.mp3"
+dest_files=[ "res://.import/alex-productions-epic-cinematic-trailer-elite.mp3-4eed764bfb1c84d5101de7261be50a63.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

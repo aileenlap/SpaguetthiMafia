@@ -23,6 +23,14 @@ region = Rect2( 300, 0, 150, 150 )
 atlas = ExtResource( 2 )
 region = Rect2( 450, 0, 150, 150 )
 
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 1 )
+region = Rect2( 150, 0, 150, 150 )
+
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 150, 150 )
@@ -87,19 +95,16 @@ region = Rect2( 900, 0, 150, 150 )
 atlas = ExtResource( 3 )
 region = Rect2( 1050, 0, 150, 150 )
 
-[sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 150, 150 )
-
-[sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 1 )
-region = Rect2( 150, 0, 150, 150 )
-
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 25 ), SubResource( 26 ), SubResource( 25 ), SubResource( 26 ), SubResource( 25 ), SubResource( 26 ) ],
+"loop": true,
+"name": "defense",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
@@ -116,11 +121,6 @@ animations = [ {
 "loop": true,
 "name": "attack",
 "speed": 8.0
-}, {
-"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 25 ), SubResource( 26 ), SubResource( 25 ), SubResource( 26 ), SubResource( 25 ), SubResource( 26 ) ],
-"loop": true,
-"name": "defense",
-"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=22]
@@ -227,6 +227,7 @@ script = ExtResource( 6 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 21 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
