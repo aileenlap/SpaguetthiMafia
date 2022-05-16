@@ -14,6 +14,8 @@ var startpos = 0
 var targetpos = 0
 var t = 0
 var drawtime = 1
+var startrot = 0
+var targetrot = 0
 
 var selected = false
 var global_position
@@ -42,6 +44,7 @@ func carrega():
 	$CardBase/Area2D/Text.text = text
 	$Card.scale *= CardSize/$Card.texture.get_size()
 	$CardBack.scale *= CardSize/$CardBack.texture.get_size()
+	
 	
 func _process(delta):
 	if selected:

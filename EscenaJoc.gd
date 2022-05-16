@@ -9,7 +9,10 @@ onready var DeckSize = PlayerHand.CardList.size()
 onready var CentreCard = get_viewport().size * Vector2(0.45, 1.15)
 onready var Hor_rad = get_viewport().size.x*0.45
 onready var Ver_rad = get_viewport().size.y*0.4
-var angle = deg2rad(90) - 0.5
+var angle = 0
+var CardSpread = 0.25
+var Card_numb = 0
+var NumberCardsHand = 0
 var OvalAngleVector = Vector2()
 
 enum{
@@ -25,6 +28,7 @@ func _ready():
 	pass 
 	
 func drawcard():
+	angle = PI/2 + CardSpread*(float(NumberCardsHand)/2 - NumberCardsHand)
 	var nova_carta = EscenaCarta.instance()
 	CarSelected = randi() % DeckSize
 	nova_carta.Cardname = PlayerHand.CardList[CarSelected]
@@ -38,9 +42,20 @@ func drawcard():
 	get_parent().add_child(nova_carta)
 	nova_carta.rect_scale *= CardSize/nova_carta.rect_size
 	nova_carta.state = MoveDrawnCardToHand
+	Card_numb = 0
+	for karta in $Carta.get_children():
+		angle = PI/2 + CardSpread*(float(NumberCardsHand)/2 - Card_numb)
+		OvalAngleVector = Vector2(Hor_rad * cos(angle), - Ver_rad * sin(angle))
+		nova_carta.startpos = $Deck.position - CardSize/2
+		nova_carta.targetpos = CentreCard + OvalAngleVector - nova_carta.rect_size
+		nova_carta.startrot = 0
+		nova_carta.targetrot = (90 - rad2deg(angle))/4
+		karta.state = ReOrganiseHand
 	PlayerHand.CardList.erase(PlayerHand.CardList[CarSelected])
 	angle += 0.25
 	DeckSize -= 1
+	NumberCardsHand += 1
+	Card_numb += 1
 	return DeckSize
 		
 		
