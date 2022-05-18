@@ -10,13 +10,14 @@ func change_max(new_max):
 	max_health = new_max
 	$HealthBar/TextureProgress.max_value = max_health
 	
-func change_health (new_life):
-	health = new_life
+func change_health (new_life): 
 	yield(get_tree().create_timer(1.5), 'timeout')
-	$AnimatedSprite.play("hurt")
+	if new_life < health:
+		$AnimatedSprite.play("hurt")
 	$HealthBar._on_health_updated(new_life)
 	yield(get_tree().create_timer(0.8), 'timeout')
 	$AnimatedSprite.play("idle")
+	health = new_life
 	if self.health == 0:
 		$AnimatedSprite.play('die')
 		yield(get_tree().create_timer(0.6), "timeout")
@@ -28,6 +29,7 @@ func _ready():
 	$AnimatedSprite.play("idle")
 	yield(get_tree().create_timer(3), 'timeout')
 #	_attack(5)
+#	_defense(2,3)
 
 func _attack(damage):
 	$AnimationPlayer.play('attack')
@@ -42,5 +44,8 @@ func _defense(defense, buff):
 	$AnimatedSprite.play('idle')
 	return defense_total
 
-func _on_Personatge_atac(damage_totalp):
-	self.health = health - damage_totalp
+func _on_Personatge_atac(damage_totalp, defense_total):
+	if defense_total > 0:
+		self.health = health - (damage_totalp - defense_total)
+	else:
+		self.health = health - damage_totalp

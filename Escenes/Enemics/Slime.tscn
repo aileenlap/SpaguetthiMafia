@@ -18,7 +18,7 @@
 [ext_resource path="res://sprites/Individual SpritesS/slime-idle-0.png" type="Texture" id=16]
 [ext_resource path="res://sprites/Individual SpritesS/slime-idle-1.png" type="Texture" id=17]
 [ext_resource path="res://Escenes/Health Bar/HealthBar.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Escenes/Enemics/Slime.gd" type="Script" id=19]
+[ext_resource path="res://Slime.gd" type="Script" id=19]
 [ext_resource path="res://sprites/Individual SpritesS/slime-idle-00.png" type="Texture" id=20]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -38,14 +38,14 @@ animations = [ {
 "name": "attack",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "die",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "hurt",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "die",
 "speed": 5.0
 } ]
 

@@ -59,7 +59,8 @@ func _defense(defense, buff):
 	$AnimatedSprite.play('idle')
 	return defense_total
 
-func _on_Slime_atac(damage_totals):
-	self.health -= damage_totals
-	
-
+func _on_Slime_atac(damage_totals, defense_total):
+	if defense_total > 0:
+		self.health = health - (damage_totals - defense_total)
+	else:
+		self.health = health - damage_totals
