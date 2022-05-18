@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Slime.mp3-b9ca8e91474108f6fd7452537226081e.mp3str"
+
+[deps]
+
+source_file="res://musica/SFX/Slime.mp3"
+dest_files=[ "res://.import/Slime.mp3-b9ca8e91474108f6fd7452537226081e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

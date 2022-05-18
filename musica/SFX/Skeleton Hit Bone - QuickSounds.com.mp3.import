@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Skeleton Hit Bone - QuickSounds.com.mp3-76feb2afd5486706d28c484a11111d27.mp3str"
+
+[deps]
+
+source_file="res://musica/SFX/Skeleton Hit Bone - QuickSounds.com.mp3"
+dest_files=[ "res://.import/Skeleton Hit Bone - QuickSounds.com.mp3-76feb2afd5486706d28c484a11111d27.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

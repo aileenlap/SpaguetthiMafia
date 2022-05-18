@@ -12,7 +12,7 @@ func _ready():
 	
 	Music2 = AudioStreamPlayer.new()
 	Music2.stream = preload("res://musica/alex-productions-epic-cinematic-trailer-elite.mp3")
-	Music2.bus = "sfx"
+	Music2.bus = "bgm"
 	add_child(Music2)
 	
 	Music1.play()

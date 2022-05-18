@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Shield.mp3-e9ba8c218fede419f7cfe49d14663464.mp3str"
+
+[deps]
+
+source_file="res://musica/SFX/Shield.mp3"
+dest_files=[ "res://.import/Shield.mp3-e9ba8c218fede419f7cfe49d14663464.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
