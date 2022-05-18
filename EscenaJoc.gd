@@ -39,18 +39,18 @@ func drawcard():
 	nova_carta.targetpos = CentreCard + OvalAngleVector - nova_carta.rect_size
 	nova_carta.startrot = 0
 	nova_carta.targetrot = (90 - rad2deg(angle))/4
-	get_parent().add_child(nova_carta)
+	CardDatabase.Cartes.add_child(nova_carta)
 	nova_carta.rect_scale *= CardSize/nova_carta.rect_size
 	nova_carta.state = MoveDrawnCardToHand
 	Card_numb = 0
-	for karta in $Carta.get_children():
+	for Card in CardDatabase.Cartes.get_children():
 		angle = PI/2 + CardSpread*(float(NumberCardsHand)/2 - Card_numb)
 		OvalAngleVector = Vector2(Hor_rad * cos(angle), - Ver_rad * sin(angle))
-		nova_carta.startpos = $Deck.position - CardSize/2
-		nova_carta.targetpos = CentreCard + OvalAngleVector - nova_carta.rect_size
-		nova_carta.startrot = 0
-		nova_carta.targetrot = (90 - rad2deg(angle))/4
-		karta.state = ReOrganiseHand
+		Card.startpos = $Deck.position - CardSize/2
+		Card.targetpos = CentreCard + OvalAngleVector - nova_carta.rect_size
+		Card.startrot = 0
+		Card.targetrot = (90 - rad2deg(angle))/4
+		Card.state = ReOrganiseHand
 	PlayerHand.CardList.erase(PlayerHand.CardList[CarSelected])
 	angle += 0.25
 	DeckSize -= 1

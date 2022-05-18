@@ -1,6 +1,8 @@
 extends Node
 #Cardinfo = type, cost, dmg, text
 
+var Cartes
+
 enum {civilian1, civilian2}
 
 const DATA = {

@@ -16,6 +16,7 @@ var t = 0
 var drawtime = 1
 var startrot = 0
 var targetrot = 0
+var Orig_scale = rect_scale.x
 
 var selected = false
 var global_position
@@ -81,13 +82,27 @@ func _physics_process(delta):
 		MoveDrawnCardToHand:
 			if t <= 1:
 				rect_position = startpos.linear_interpolate(targetpos, t)
+				rect_rotation = startrot * (1-t) + targetrot * t
+				rect_scale.x = Orig_scale * abs(2-t - 1)
+				if $CardBack.visible:
+					if t >= false:
+						$CardBack.visible = false
 				t += delta/float(drawtime)
 			else:
 				rect_position = targetpos
+				rect_rotation = targetrot
 				state = InHand
 				t = 0
 			
 		ReOrganiseHand:
-			pass
+			if t <= 1:
+				rect_position = startpos.linear_interpolate(targetpos, t)
+				rect_rotation = startrot * (1-t) + targetrot * t
+				t += delta/float(drawtime)
+			else:
+				rect_position = targetpos
+				rect_rotation = targetrot
+				state = InHand
+				t = 0
 			
 			
