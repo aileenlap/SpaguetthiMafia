@@ -46,10 +46,9 @@ step = 0.01
 value = 1.0
 
 [node name="Label" type="Label" parent="VBoxContainer/HSlider"]
-margin_left = 65.0
-margin_top = -38.0
-margin_right = 145.0
-margin_bottom = -3.0
+margin_left = 60.0
+margin_top = -35.0
+margin_right = 140.0
 theme = ExtResource( 6 )
 text = "Music"
 
@@ -69,12 +68,30 @@ step = 0.01
 value = 1.0
 
 [node name="Label" type="Label" parent="VBoxContainer2/HSlider2"]
-margin_left = 80.0
-margin_top = -38.0
-margin_right = 160.0
-margin_bottom = -3.0
+margin_left = 77.5
+margin_top = -35.0
+margin_right = 122.5
 theme = ExtResource( 6 )
 text = "Sfx"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+margin_left = 460.7
+margin_top = 375.0
+margin_right = 536.7
+margin_bottom = 415.0
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer3"]
+margin_right = 76.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1.35, 1.35 )
+
+[node name="Label" type="Label" parent="VBoxContainer3/CheckButton"]
+margin_left = -28.0
+margin_top = -30.0
+margin_right = 102.0
+margin_bottom = 5.0
+theme = ExtResource( 6 )
+text = "Full Screen"
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="value_changed" from="VBoxContainer/HSlider" to="." method="_on_HSlider_value_changed"]
