@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Carta.tscn" type="PackedScene" id=1]
+[ext_resource path="res://EscenaJoc.gd" type="Script" id=2]
+[ext_resource path="res://DeckDraw.gd" type="Script" id=3]
+[ext_resource path="res://sprites/PNG/Cards_color2/Civilian_card_back/Civilian_card_back.png" type="Texture" id=4]
+[ext_resource path="res://sprites/PNG/Cards_color1/Civilian_card_back/details/Background.png" type="Texture" id=5]
+[ext_resource path="res://Cartes.gd" type="Script" id=6]
+
+[node name="EscenaJoc" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Carta" parent="." instance=ExtResource( 1 )]
+visible = false
+margin_left = -193.0
+margin_top = -4.0
+margin_right = -193.0
+margin_bottom = -4.0
+
+[node name="Deck" type="Node2D" parent="."]
+
+[node name="DeckDraw" type="TextureButton" parent="Deck"]
+margin_left = 3.0
+margin_right = 198.0
+margin_bottom = 284.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+script = ExtResource( 3 )
+
+[node name="Cartes" type="Node2D" parent="."]
+script = ExtResource( 6 )

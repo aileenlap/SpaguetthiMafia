@@ -1,42 +1,108 @@
 extends Control
 
-var mouse_over = false
-var mouse_clicked = false
-var node_dragged = false
-var is_draggable = false
-var last_node_dragged = false
+enum{
+	InHand
+	InPlay
+	InMouse
+	FocusInHand
+	MoveDrawnCardToHand
+	ReOrganiseHand
+}
 
-var is_unplacable = false
-var over_place = false
-var node_placed_in = null
-var mouse_pos_distance
+var state = InHand
+var startpos = 0
+var targetpos = 0
+var t = 0
+var drawtime = 1
+var startrot = 0
+var targetrot = 0
+var Orig_scale = rect_scale.x
 
-onready var main = get_tree().get_current_scene()
+var selected = false
+var global_position
+var initial_pos
+var offset
+var Cardname
+var CardInfo
 
+var type
+var cost
+var dmg
+var text
+
+func _ready():
+	initial_pos = rect_position
+	
+	
+func carrega():
+	var CardSize = rect_size
+	CardInfo = CardDatabase.DATA[Cardname]
+	type = CardInfo['tipus']
+	cost = CardInfo['cost']
+	dmg = CardInfo['mal']
+	text = CardInfo['descripcio']
+	$CardBase/Area2D/MarginContainer/VBoxContainer/Nom.text = Cardname
+	$CardBase/Area2D/Text.text = text
+	$Card.scale *= CardSize/$Card.texture.get_size()
+	$CardBack.scale *= CardSize/$CardBack.texture.get_size()
+	
+	
 func _process(delta):
-	if ! node_placed_in:
-		if Input.is_action_pressed("click"):
-			if !mouse_clicked && mouse_over:
-				node_dragged = true
-				mouse_pos_distance = get_viewport().get_mouse_position() - self.global_position
-			mouse_clicked = true
+	if selected:
+		followMouse()
+		
+func followMouse():
+	rect_position = get_global_mouse_position() - offset
+
+func _on_Carta_gui_input(event):
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
+		if event.pressed:
+			#mouse down
+			selected = true
+			offset = rect_size/rect_position - get_local_mouse_position()
 		else:
-			mouse_clicked = false
-			node_dragged = false
+			#mouse released
+			selected = false
+			rect_position = initial_pos
 			
-		if node_dragged && is_draggable:
-			main.drag_node(self)
-			if $s_shadow.position.x < 20:
-				$s_shadow.position = Vector2($s_shadow.position.x +3,$s_shadow.position.y +3)
-			self.position = Vector2(self.position.x - 2,self.position.y - 2)
-			$Tween.interpolate_property(self,"position",self.position,get_viewport().get_mouse_position() - mouse_pos_distance,0.1,Tween.TRANS_SINE,Tween.EASE_OUT)
-			$Tween.start()
-			last_node_dragged = true
-
-func _on_area_mouse_entered():
-	mouse_over = true
-	main._add_sprite(self)
-
-func _on_area_mouse_exited():
-	mouse_over = false
-	main._remove_sprite(self)
+func _physics_process(delta):
+	match state:
+		InHand:
+			pass
+			
+		InPlay:
+			pass
+			
+		InMouse:
+			pass
+			
+		FocusInHand:
+			pass
+			
+		MoveDrawnCardToHand:
+			if t <= 1:
+				rect_position = startpos.linear_interpolate(targetpos, t)
+				rect_rotation = startrot * (1-t) + targetrot * t
+				rect_scale.x = Orig_scale * abs(2-t - 1)
+				if $CardBack.visible:
+					if t >= false:
+						$CardBack.visible = false
+				t += delta/float(drawtime)
+			else:
+				rect_position = targetpos
+				rect_rotation = targetrot
+				state = InHand
+				t = 0
+			
+		ReOrganiseHand:
+			if t <= 1:
+				rect_position = startpos.linear_interpolate(targetpos, t)
+				rect_rotation = startrot * (1-t) + targetrot * t
+				t += delta/float(drawtime)
+			else:
+				rect_position = targetpos
+				rect_rotation = targetrot
+				state = InHand
+				t = 0
+			
+			

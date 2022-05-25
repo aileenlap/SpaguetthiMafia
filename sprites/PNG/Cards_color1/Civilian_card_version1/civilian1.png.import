@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Civilian_card_version1_pic1.png-47bcd81c628283c4dbc2b9098c48c25a.stex"
+path="res://.import/civilian1.png-9c3030cb52f0c7579923374860b76625.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/PNG/Cards_color1/Civilian_card_version1/Civilian_card_version1_pic1.png"
-dest_files=[ "res://.import/Civilian_card_version1_pic1.png-47bcd81c628283c4dbc2b9098c48c25a.stex" ]
+source_file="res://sprites/PNG/Cards_color1/Civilian_card_version1/civilian1.png"
+dest_files=[ "res://.import/civilian1.png-9c3030cb52f0c7579923374860b76625.stex" ]
 
 [params]
 
