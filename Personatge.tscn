@@ -60,14 +60,14 @@ animations = [ {
 "name": "die",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 19 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "hurt",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 22 ), ExtResource( 31 ), ExtResource( 35 ), ExtResource( 29 ) ],
 "loop": true,
 "name": "attack2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 3 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 16 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "run",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 28 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 25 ), ExtResource( 30 ) ],
@@ -80,9 +80,9 @@ animations = [ {
 "name": "attack3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 3 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 16 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 21 ), ExtResource( 19 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "run",
+"name": "hurt",
 "speed": 5.0
 } ]
 
@@ -204,7 +204,6 @@ script = ExtResource( 40 )
 scale = Vector2( 2.53, 3.24324 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
