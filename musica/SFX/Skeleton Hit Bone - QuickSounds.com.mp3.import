@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Skeleton Hit Bone - QuickSounds.com.mp3-76feb2afd548
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

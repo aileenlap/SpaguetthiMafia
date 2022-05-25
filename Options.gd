@@ -19,11 +19,11 @@ func _on_HSlider2_value_changed(value):
 	AudioServer.set_bus_volume_db(2, linear2db(value))
 	AudioServer.set_bus_mute(2, value < 0.01)
 
-func _safe():
+func _save(): 
 	var doc = File.new()
 	var dicti = {}
 	doc.open("user://save.dat", File.WRITE)
-	for node in get_tree().get_nodes_in_group("safe"):
+	for node in get_tree().get_nodes_in_group("save"):
 		dicti[node.get_path()] = node.desa()
 	doc.store_string(var2str(dicti))
 	doc.close()
@@ -37,3 +37,14 @@ func _load():
 		for prop in dicti[way]:
 			node.set(prop, dicti[way][prop])
 	doc.close()
+
+
+func _on_CheckButton_toggled(button_pressed):
+	if button_pressed == true:
+		OS.window_fullscreen = true
+	else:
+		OS.window_fullscreen = false
+
+
+func _on_TextureButton2_pressed():
+	_save()

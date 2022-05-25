@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Options.gd" type="Script" id=1]
 [ext_resource path="res://sprites/png-transparent-medieval-european-border-background-gradient-color-european-style-complicated.png" type="Texture" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://sprites/Delete-Red-X-Button-Transparent (2).png" type="Texture" id=4]
 [ext_resource path="res://sprites/Delete-Red-X-Button-Transparent.png" type="Texture" id=5]
 [ext_resource path="res://tema.tres" type="Theme" id=6]
+[ext_resource path="res://sprites/alex culubret carta.png" type="Texture" id=7]
+[ext_resource path="res://sprites/baixa.png" type="Texture" id=8]
+[ext_resource path="res://sprites/baixa (1).png" type="Texture" id=9]
 
 [node name="Options" type="Control"]
 anchor_right = 1.0
@@ -83,7 +86,8 @@ margin_bottom = 415.0
 [node name="CheckButton" type="CheckButton" parent="VBoxContainer3"]
 margin_right = 76.0
 margin_bottom = 40.0
-rect_scale = Vector2( 1.35, 1.35 )
+focus_mode = 0
+enabled_focus_mode = 0
 
 [node name="Label" type="Label" parent="VBoxContainer3/CheckButton"]
 margin_left = -28.0
@@ -93,6 +97,19 @@ margin_bottom = 5.0
 theme = ExtResource( 6 )
 text = "Full Screen"
 
+[node name="TextureButton2" type="TextureButton" parent="."]
+margin_left = 13.0
+margin_top = 534.0
+margin_right = 613.0
+margin_bottom = 1125.0
+rect_scale = Vector2( 0.11, 0.11 )
+focus_mode = 0
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 8 )
+
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="value_changed" from="VBoxContainer/HSlider" to="." method="_on_HSlider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer2/HSlider2" to="." method="_on_HSlider2_value_changed"]
+[connection signal="toggled" from="VBoxContainer3/CheckButton" to="." method="_on_CheckButton_toggled"]
+[connection signal="pressed" from="TextureButton2" to="." method="_on_TextureButton2_pressed"]

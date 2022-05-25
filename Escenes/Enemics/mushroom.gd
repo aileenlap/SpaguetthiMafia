@@ -22,13 +22,21 @@ func _ready():
 	self.health = 0
 
 func _attack(damage, buff):
-	$AnimationPlayer.play("Nova Animació")
 	var damage_total = damage + buff
+	$AnimationPlayer.play("Nova Animació")
+	Global.Mushroom_sfx.play()
 	return damage_total
 	
 func _defense(defense, buff):
-	$AnimatedSprite.play("defense")
 	var defense_total = defense + buff
+	$AnimatedSprite.play("defense")
+	Global.Protect_sfx.play()
 	yield(get_tree().create_timer(1.6), "timeout")
 	$AnimatedSprite.play("idle")
 	return defense_total
+	
+func desa():
+	var dict = {}
+	dict['position'] = position
+	dict["health"] = health
+	return dict

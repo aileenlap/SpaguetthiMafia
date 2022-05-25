@@ -241,13 +241,13 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[node name="KinematicBody2D2" type="KinematicBody2D"]
+[node name="KinematicBody2D2" type="KinematicBody2D" groups=["node"]]
 script = ExtResource( 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 25 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

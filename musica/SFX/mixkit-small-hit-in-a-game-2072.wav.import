@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mixkit-small-hit-in-a-game-2072.wav-1f8a32c74e8286a2dc14743402493fbc.sample"
+
+[deps]
+
+source_file="res://musica/SFX/mixkit-small-hit-in-a-game-2072.wav"
+dest_files=[ "res://.import/mixkit-small-hit-in-a-game-2072.wav-1f8a32c74e8286a2dc14743402493fbc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
